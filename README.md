@@ -1,4 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is the DIPACT company website and internal lead dashboard, built with Next.js, Prisma and PostgreSQL.
+
+## Dashboard Setup
+
+Add these server-only variables to `.env` before using `/dashboard/login`:
+
+```env
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/postgres?sslmode=require"
+DASHBOARD_EMAIL="manager@example.com"
+DASHBOARD_PASSWORD="use-a-unique-strong-password"
+DASHBOARD_SESSION_SECRET="generate-a-random-secret-at-least-32-characters-long"
+```
+
+Generate a session secret with `openssl rand -base64 32`. Apply the Prisma schema with `npx prisma db push`, then run `npx prisma generate`. The dashboard login is available at `/dashboard/login`; it shows candidate applications, company requests, and contact messages. Never commit `.env` or share its values. Rotate any credentials that have been shared in chat before production use.
+
+The dashboard uses an application-level single-account login configured through environment variables. Add platform-level rate limiting and use a unique strong password before exposing it publicly.
 
 ## Getting Started
 
