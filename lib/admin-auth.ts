@@ -1,6 +1,7 @@
 import "server-only";
 
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 const cookieName = "dipact_admin_session";
@@ -70,6 +71,7 @@ export async function destroyDashboardSession() {
 }
 
 export async function getDashboardSession() {
+  await connection();
   const token = (await cookies()).get(cookieName)?.value;
   if (!token) return null;
 

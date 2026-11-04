@@ -6,6 +6,7 @@ import {
   Users,
 } from "lucide-react";
 import { redirect } from "next/navigation";
+import { connection } from "next/server";
 
 import { logoutDashboard } from "@/app/dashboard/actions";
 import {
@@ -19,6 +20,7 @@ export async function DashboardContent() {
   const session = await getDashboardSession();
   if (!session) redirect("/dashboard/login");
 
+  await connection();
   const now = new Date();
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
   const chartStart = new Date(now.getFullYear(), now.getMonth() - 5, 1);
