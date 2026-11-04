@@ -10,7 +10,10 @@ import {
 
 export type LoginState = { error?: string };
 
-export async function loginDashboard(_previousState: LoginState, formData: FormData): Promise<LoginState> {
+export async function loginDashboard(
+  _previousState: LoginState,
+  formData: FormData,
+): Promise<LoginState> {
   const email = String(formData.get("email") ?? "");
   const password = String(formData.get("password") ?? "");
   if (!verifyDashboardCredentials(email, password)) {

@@ -4,15 +4,15 @@ Unternehmenswebsite und internes Anfrage-Dashboard der DIPACT, einer Vertriebsma
 
 ## Website
 
-| Bereich | URL | Inhalt |
-| --- | --- | --- |
-| Startseite | `/` | Unternehmen, Arbeitsweise und zentrale Kontaktwege |
-| Karriere | `/karriere` | Tätigkeit, Einarbeitung, Entwicklung und Bewerbungsformular |
-| Für Unternehmen | `/fuer-unternehmen` | Leistungen und Anfrage für Vertriebsprojekte |
-| Über uns | `/ueber-uns` | Unternehmen, Gründer und Werte |
-| Kontakt | `/kontakt` | Kontaktinformationen und Nachrichtenformular |
-| Impressum | `/impressum` | Anbieterkennzeichnung |
-| Datenschutz | `/datenschutz` | Datenschutzhinweise |
+| Bereich         | URL                 | Inhalt                                                      |
+| --------------- | ------------------- | ----------------------------------------------------------- |
+| Startseite      | `/`                 | Unternehmen, Arbeitsweise und zentrale Kontaktwege          |
+| Karriere        | `/karriere`         | Tätigkeit, Einarbeitung, Entwicklung und Bewerbungsformular |
+| Für Unternehmen | `/fuer-unternehmen` | Leistungen und Anfrage für Vertriebsprojekte                |
+| Über uns        | `/ueber-uns`        | Unternehmen, Gründer und Werte                              |
+| Kontakt         | `/kontakt`          | Kontaktinformationen und Nachrichtenformular                |
+| Impressum       | `/impressum`        | Anbieterkennzeichnung                                       |
+| Datenschutz     | `/datenschutz`      | Datenschutzhinweise                                         |
 
 Das interne Dashboard unter `/dashboard` bietet eine Übersicht über Bewerbungen, Unternehmensanfragen und Kontaktmitteilungen. Es ist nicht öffentlich zugänglich und wird nicht in die Sitemap aufgenommen.
 

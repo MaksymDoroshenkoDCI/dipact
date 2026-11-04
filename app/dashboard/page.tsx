@@ -11,5 +11,9 @@ export default function DashboardPage() {
 }
 
 function DashboardLoading() {
-  return <main className="min-h-screen bg-slate-950 p-8 text-slate-400">Dashboard wird geladen...</main>;
+  return (
+    <main className="min-h-screen bg-slate-950 p-8 text-slate-400">
+      Dashboard wird geladen...
+    </main>
+  );
 }
