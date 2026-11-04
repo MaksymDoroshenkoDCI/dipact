@@ -2,6 +2,14 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 import { ContactMessageForm } from "@/components/forms";
 import { SiteLayout } from "@/components/site-layout";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Kontakt zu DIPACT",
+  description:
+    "Kontaktieren Sie DIPACT zu Vertriebsprojekten, Geschäftspartnerschaften und allgemeinen Fragen. Wir sind in Berlin und Brandenburg aktiv.",
+  path: "/kontakt",
+});
 
 export default function ContactPage() {
   return (

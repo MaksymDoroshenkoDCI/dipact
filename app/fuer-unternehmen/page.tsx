@@ -10,6 +10,14 @@ import Link from "next/link";
 
 import { CompanyRequestForm } from "@/components/forms";
 import { SiteLayout } from "@/components/site-layout";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Direktvertrieb für Unternehmen",
+  description:
+    "DIPACT unterstützt Unternehmen mit persönlichem Direktvertrieb, Teamaufbau und operativer Vertriebssteuerung in Berlin und Brandenburg.",
+  path: "/fuer-unternehmen",
+});
 
 const services = [
   {

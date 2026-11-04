@@ -2,6 +2,14 @@ import { ArrowRight, Building2, HeartHandshake, Users } from "lucide-react";
 import Link from "next/link";
 
 import { SiteLayout } from "@/components/site-layout";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Über DIPACT",
+  description:
+    "Lernen Sie DIPACT und die Lavut & Engel Sales Group GmbH kennen: unsere Erfahrung im Direktvertrieb, unser Team und unsere Werte.",
+  path: "/ueber-uns",
+});
 
 const values = [
   {

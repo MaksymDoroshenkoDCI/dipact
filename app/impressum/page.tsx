@@ -1,4 +1,12 @@
 import { SiteLayout } from "@/components/site-layout";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Impressum",
+  description:
+    "Anbieterkennzeichnung und Kontaktangaben der DIPACT, einer Marke der Lavut & Engel Sales Group GmbH.",
+  path: "/impressum",
+});
 
 export default function ImpressumPage() {
   return (

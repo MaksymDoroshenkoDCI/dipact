@@ -1,4 +1,12 @@
 import { SiteLayout } from "@/components/site-layout";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Datenschutzhinweise",
+  description:
+    "Informationen zur Verarbeitung personenbezogener Daten bei der Nutzung der DIPACT-Website und ihrer Kontaktformulare.",
+  path: "/datenschutz",
+});
 
 export default function DatenschutzPage() {
   return (

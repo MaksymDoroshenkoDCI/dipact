@@ -13,6 +13,14 @@ import Link from "next/link";
 
 import { CandidateApplicationForm } from "@/components/forms";
 import { SiteLayout } from "@/components/site-layout";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Karriere im Direktvertrieb",
+  description:
+    "Starte bei DIPACT im persönlichen Vertrieb. Entdecke Aufgaben, Einarbeitung und Entwicklungsmöglichkeiten in Berlin und Brandenburg.",
+  path: "/karriere",
+});
 
 const benefits = [
   {

@@ -1,8 +1,49 @@
-This is the DIPACT company website and internal lead dashboard, built with Next.js, Prisma and PostgreSQL.
+# DIPACT
 
-## Dashboard Setup
+Unternehmenswebsite und internes Anfrage-Dashboard der DIPACT, einer Vertriebsmarke der Lavut & Engel Sales Group GmbH. Die Website informiert Bewerberinnen und Bewerber sowie Unternehmen über persönlichen Direktvertrieb in Berlin und Brandenburg und ermöglicht Kontakt- und Projektanfragen.
 
-Add these server-only variables to `.env` before using `/dashboard/login`:
+## Website
+
+| Bereich | URL | Inhalt |
+| --- | --- | --- |
+| Startseite | `/` | Unternehmen, Arbeitsweise und zentrale Kontaktwege |
+| Karriere | `/karriere` | Tätigkeit, Einarbeitung, Entwicklung und Bewerbungsformular |
+| Für Unternehmen | `/fuer-unternehmen` | Leistungen und Anfrage für Vertriebsprojekte |
+| Über uns | `/ueber-uns` | Unternehmen, Gründer und Werte |
+| Kontakt | `/kontakt` | Kontaktinformationen und Nachrichtenformular |
+| Impressum | `/impressum` | Anbieterkennzeichnung |
+| Datenschutz | `/datenschutz` | Datenschutzhinweise |
+
+Das interne Dashboard unter `/dashboard` bietet eine Übersicht über Bewerbungen, Unternehmensanfragen und Kontaktmitteilungen. Es ist nicht öffentlich zugänglich und wird nicht in die Sitemap aufgenommen.
+
+## Technologie
+
+- Next.js 16 mit App Router und TypeScript
+- Tailwind CSS 4 und Lucide React
+- PostgreSQL mit Prisma 7 und PostgreSQL Driver Adapter
+- React Hook Form und Zod für Formulare und Validierung
+- Server Actions für Formularübermittlung und Dashboard-Anmeldung
+
+## Lokale Entwicklung
+
+Voraussetzung ist eine unterstützte Node.js-Version sowie eine erreichbare PostgreSQL-Datenbank. Umgebungsvariablen werden in `.env` gespeichert und dürfen nicht eingecheckt werden.
+
+```bash
+npm install
+cp .env.example .env
+```
+
+Anschließend die Werte in `.env` eintragen und Prisma vorbereiten:
+
+```bash
+npx prisma db push
+npx prisma generate
+npm run dev
+```
+
+Die lokale Website ist danach unter [http://localhost:3000](http://localhost:3000) erreichbar. Der Dashboard-Login befindet sich unter `/dashboard/login`.
+
+## Umgebungsvariablen
 
 ```env
 DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/postgres?sslmode=require"
@@ -11,41 +52,28 @@ DASHBOARD_PASSWORD="use-a-unique-strong-password"
 DASHBOARD_SESSION_SECRET="generate-a-random-secret-at-least-32-characters-long"
 ```
 
-Generate a session secret with `openssl rand -base64 32`. Apply the Prisma schema with `npx prisma db push`, then run `npx prisma generate`. The dashboard login is available at `/dashboard/login`; it shows candidate applications, company requests, and contact messages. Never commit `.env` or share its values. Rotate any credentials that have been shared in chat before production use.
+Einen Sitzungsschlüssel können Sie mit `openssl rand -base64 32` erzeugen. Verwenden Sie für den Dashboard-Zugang ein einzigartiges, starkes Passwort, schützen Sie den Login zusätzlich mit Rate Limiting und hinterlegen Sie keine Zugangsdaten in Quellcode, Dokumentation oder Git.
 
-The dashboard uses an application-level single-account login configured through environment variables. Add platform-level rate limiting and use a unique strong password before exposing it publicly.
+## Formulare und Dashboard
 
-## Getting Started
+Die Formulare speichern Bewerbungen, Unternehmensanfragen und Kontaktmitteilungen in getrennten PostgreSQL-Tabellen. Das Dashboard liest diese Daten ausschließlich serverseitig nach erfolgreicher Anmeldung. Die Sitzung wird in einem signierten, HTTP-only Cookie gespeichert und läuft nach acht Stunden ab.
 
-First, run the development server:
+Für lokale Umgebungen kann die Prisma-Struktur mit `npx prisma db push` synchronisiert werden. Für Produktionsdeployments sollten Schemaänderungen über versionierte Prisma-Migrationen ausgerollt werden.
+
+## Suchmaschinenoptimierung
+
+- Seitenspezifische deutsche Titel und Beschreibungen sowie Canonical-URLs
+- Open-Graph- und Twitter-Metadaten für öffentliche Seiten
+- Sitemap: `/sitemap.xml`
+- Crawler-Regeln: `/robots.txt`
+- Dashboard-Routen sind auf `noindex` gesetzt und nicht Teil der Sitemap
+
+Die Website nutzt `https://dipact.de` als kanonische Domain. Vor dem Launch müssen Unternehmensdaten, Datenschutztexte und Kontaktangaben geprüft und freigegeben werden.
+
+## Prüfungen
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run build
+npx prisma validate
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -2,6 +2,14 @@ import { ArrowRight, Sparkles, Users, Wand2 } from "lucide-react";
 import Link from "next/link";
 
 import { SiteLayout } from "@/components/site-layout";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Direktvertrieb mit Wirkung",
+  description:
+    "DIPACT baut Vertriebsteams auf, entwickelt Menschen und unterstützt Unternehmen im persönlichen Direktvertrieb in Berlin und Brandenburg.",
+  path: "/",
+});
 
 const featureCards = [
   {
