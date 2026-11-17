@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowRight, Menu, Moon, Sun, X } from "lucide-react";
+import { ArrowRight, LogIn, Menu, Moon, Sun, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
@@ -64,10 +65,21 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="text-2xl font-black tracking-tight text-white"
+          className="shrink-0"
           onClick={closeMenu}
         >
-          DIPACT
+          <Image
+            src={
+              theme === "dark"
+                ? "/logo_dipact_little_wh.png"
+                : "/logo_dipact_little_dark.png"
+            }
+            alt="DIPACT"
+            width={726}
+            height={384}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         <nav
@@ -107,6 +119,14 @@ export function SiteHeader() {
               <Moon className="h-5 w-5" />
             )}
           </button>
+
+          <Link
+            href="/dashboard/login"
+            className="hidden items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-orange-400/50 hover:bg-white/10 md:inline-flex"
+          >
+            <LogIn className="h-4 w-4" />
+            Dashboard Login
+          </Link>
 
           <Link
             href="/karriere"
@@ -150,6 +170,14 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/dashboard/login"
+              onClick={closeMenu}
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-orange-400/50 hover:bg-white/10"
+            >
+              <LogIn className="h-4 w-4" />
+              Dashboard Login
+            </Link>
             <Link
               href="/karriere"
               onClick={closeMenu}

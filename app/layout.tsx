@@ -18,6 +18,22 @@ export const metadata: Metadata = {
   title: "DIPACT | Direct Sales. Maximum Impact.",
   description:
     "DIPACT ist eine Marke der Lavut & Engel Sales Group GmbH. Wir bauen Vertriebsteams auf, entwickeln Menschen und bringen Unternehmen im persönlichen Kundenkontakt voran.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon_dipact/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon_dipact/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+    apple: "/favicon_dipact/apple-touch-icon.png",
+  },
+  manifest: "/favicon_dipact/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "de_DE",

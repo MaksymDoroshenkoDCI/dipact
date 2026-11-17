@@ -1,4 +1,5 @@
-import { Activity } from "lucide-react";
+import { Activity, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
@@ -19,6 +20,13 @@ async function DashboardLoginContent() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-950 px-4 py-12 text-slate-50">
       <div className="w-full max-w-md">
+        <Link
+          href="/"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-orange-400/50 hover:bg-white/10 hover:text-white"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Zurück zur Website
+        </Link>
         <div className="mb-8 flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-400 text-slate-950">
             <Activity className="h-5 w-5" />

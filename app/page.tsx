@@ -30,25 +30,6 @@ const featureCards = [
   },
 ];
 
-const teamMembers = [
-  {
-    name: "Maxim Engel",
-    role: "Geschäftsführer",
-    quote: "Wir bauen mit Menschen, nicht gegen sie.",
-  },
-  {
-    name: "Alexander Lavut",
-    role: "Gesellschafter",
-    quote:
-      "Vertrieb funktioniert, wenn Klarheit, Haltung und Umsetzung zusammenpassen.",
-  },
-  {
-    name: "Sarah Möller",
-    role: "Team Lead",
-    quote: "Man wächst durch Verantwortung und echte Verantwortung im Team.",
-  },
-];
-
 export default function HomePage() {
   return (
     <SiteLayout>
@@ -224,40 +205,6 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
-            Menschen hinter DIPACT
-          </p>
-          <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">
-            Lerne die Menschen kennen, die DIPACT ausmachen.
-          </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-slate-300">
-            Echte Einblicke statt austauschbarer Versprechen: Wer wir sind, wie
-            wir arbeiten und was uns antreibt.
-          </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {teamMembers.map((member) => (
-            <div
-              key={member.name}
-              className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900"
-            >
-              <div className="aspect-[4/5] bg-[radial-gradient(circle_at_20%_20%,_rgba(251,146,60,0.35),_transparent_20%),linear-gradient(135deg,_#1e293b,_#0f172a)]" />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                <p className="mt-1 text-sm uppercase tracking-[0.15em] text-orange-300">
-                  {member.role}
-                </p>
-                <p className="mt-4 text-base leading-7 text-slate-300">
-                  “{member.quote}”
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
