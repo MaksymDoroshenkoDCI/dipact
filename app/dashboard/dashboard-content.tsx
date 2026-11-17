@@ -14,7 +14,7 @@ import {
   type DashboardData,
 } from "@/app/dashboard/dashboard-view";
 import { getDashboardSession } from "@/lib/admin-auth";
-import prisma from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
 
 export async function DashboardContent() {
   const session = await getDashboardSession();
@@ -24,6 +24,7 @@ export async function DashboardContent() {
   const now = new Date();
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
   const chartStart = new Date(now.getFullYear(), now.getMonth() - 5, 1);
+  const prisma = getPrisma();
 
   const [
     candidateCount,

@@ -1,6 +1,6 @@
 "use server";
 
-import prisma from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
 import {
   candidateApplicationSchema,
   companyRequestSchema,
@@ -15,6 +15,7 @@ export async function submitCandidateApplication(
 ) {
   try {
     const parsed = candidateApplicationSchema.parse(values);
+    const prisma = getPrisma();
 
     await prisma.candidateApplication.create({
       data: {
@@ -45,6 +46,7 @@ export async function submitCandidateApplication(
 export async function submitCompanyRequest(values: CompanyRequestInput) {
   try {
     const parsed = companyRequestSchema.parse(values);
+    const prisma = getPrisma();
 
     await prisma.companyRequest.create({
       data: {
@@ -75,6 +77,7 @@ export async function submitCompanyRequest(values: CompanyRequestInput) {
 export async function submitContactMessage(values: ContactMessageInput) {
   try {
     const parsed = contactMessageSchema.parse(values);
+    const prisma = getPrisma();
 
     await prisma.contactMessage.create({
       data: {
