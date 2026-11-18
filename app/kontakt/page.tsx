@@ -37,15 +37,15 @@ export default function ContactPage() {
             <div className="mt-8 space-y-6 text-slate-300">
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-orange-300" />
-                <span>Berlin / Brandenburg</span>
+                <span>Innsbrucker Straße 25, 10825 Berlin</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-orange-300" />
-                <span>hello@dipact.de</span>
+                <span>info@lavut-engel.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-orange-300" />
-                <span>+49 (0) 30 000 000 00</span>
+                <span>+49 (30) 814574359</span>
               </div>
             </div>
           </div>

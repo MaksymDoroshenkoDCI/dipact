@@ -56,15 +56,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-orange-400" />
-                Berlin / Brandenburg
+                Innsbrucker Straße 25, 10825 Berlin
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-orange-400" />
-                hello@dipact.de
+                info@lavut-engel.com
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-orange-400" />
-                +49 (0) 30 000 000 00
+                +49 (30) 814574359
               </li>
             </ul>
           </div>
