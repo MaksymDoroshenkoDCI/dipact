@@ -108,7 +108,7 @@ export default function ImpressumPage() {
                 <br />
                 Registernummer: HRB 286261 B
                 <br />
-                Stammkapital: 25.000,00 EUR
+                
               </p>
             </Section>
 
