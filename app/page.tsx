@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles, Users, Wand2 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { SiteLayout } from "@/components/site-layout";
@@ -94,8 +95,14 @@ export default function HomePage() {
 
       <section className="border-y border-white/10 bg-slate-900/70">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950">
-            <div className="aspect-[4/3] bg-[linear-gradient(120deg,_rgba(249,115,22,0.14),_transparent_60%),linear-gradient(135deg,_#111827,_#0f172a)]" />
+          <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950">
+            <Image
+              src="/teammeeting-berlin.png"
+              alt="DIPACT-Team bei einem freundlichen Meeting im Berliner Büro"
+              fill
+              sizes="(max-width: 1024px) 100vw, 43vw"
+              className="object-cover object-center"
+            />
           </div>
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
@@ -158,26 +165,37 @@ export default function HomePage() {
       </section>
 
       <section className="bg-slate-900/80 py-16">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
-            Karriere
-          </p>
-          <h2 className="max-w-3xl text-3xl font-black text-white sm:text-4xl">
-            Du willst mehr aus dir machen?
-          </h2>
-          <p className="max-w-3xl text-lg leading-8 text-slate-300">
-            Du brauchst keinen perfekten Lebenslauf, um bei uns anzufangen.
-            Entscheidend sind deine Bereitschaft zu lernen, deine
-            Zuverlässigkeit und dein Umgang mit Menschen. Wir zeigen dir, wie
-            professioneller Direktvertrieb funktioniert.
-          </p>
-          <Link
-            href="/karriere"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-orange-200"
-          >
-            Karriere bei DIPACT
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950">
+            <Image
+              src="/Karriere%20bei%20Dipact.jpeg"
+              alt="Karriere bei DIPACT"
+              fill
+              sizes="(max-width: 1024px) 100vw, 43vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col items-start gap-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
+              Karriere
+            </p>
+            <h2 className="max-w-3xl text-3xl font-black text-white sm:text-4xl">
+              Du willst mehr aus dir machen?
+            </h2>
+            <p className="max-w-3xl text-lg leading-8 text-slate-300">
+              Du brauchst keinen perfekten Lebenslauf, um bei uns anzufangen.
+              Entscheidend sind deine Bereitschaft zu lernen, deine
+              Zuverlässigkeit und dein Umgang mit Menschen. Wir zeigen dir, wie
+              professioneller Direktvertrieb funktioniert.
+            </p>
+            <Link
+              href="/karriere"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-orange-200"
+            >
+              Karriere bei DIPACT
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
