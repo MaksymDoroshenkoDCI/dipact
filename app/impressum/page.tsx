@@ -371,6 +371,11 @@ export default function ImpressumPage() {
                 Schriftarten werden lokal von unserem Server geladen; eine
                 Verbindung zu Google-Servern findet dabei nicht statt.
               </p>
+              <p>
+                Ihre Design-Einstellung und ob Sie den Cookie-Hinweis bereits
+                geschlossen haben, speichern wir lokal in Ihrem Browser. Diese
+                Angaben verwenden wir nicht für Analyse oder Werbung.
+              </p>
             </Section>
 
             <Section title="9. Unsere Auftritte in sozialen Netzwerken">

@@ -1,5 +1,7 @@
 import { SiteHeader } from "@/components/site-header";
+import { CookieNotice } from "@/components/cookie-notice";
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -21,9 +23,22 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <footer className="border-t border-white/10 bg-slate-950 text-slate-300">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_1fr] lg:px-8">
           <div>
-            <div className="mb-4 text-2xl font-black tracking-tight text-white">
-              DIPACT
-            </div>
+            <Link href="/" className="mb-4 inline-block">
+              <Image
+                src="/logo_dipact_little_wh.png"
+                alt="DIPACT"
+                width={726}
+                height={384}
+                className="footer-logo-dark block h-10 w-auto"
+              />
+              <Image
+                src="/logo_dipact_little_dark.png"
+                alt="DIPACT"
+                width={726}
+                height={384}
+                className="footer-logo-light block h-10 w-auto"
+              />
+            </Link>
             <p className="max-w-md text-sm leading-7 text-slate-300">
               DIRECT SALES. MAXIMUM IMPACT. Wir bauen Vertriebsteams auf,
               entwickeln Menschen und bringen Unternehmen im persönlichen
@@ -92,6 +107,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </footer>
+
+      <CookieNotice />
     </div>
   );
 }
