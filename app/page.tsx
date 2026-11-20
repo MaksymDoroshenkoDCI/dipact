@@ -31,6 +31,14 @@ const featureCards = [
   },
 ];
 
+const partnerCategories = [
+  { mark: "E", name: "Energie" },
+  { mark: "T", name: "Telekommunikation" },
+  { mark: "V", name: "Versorgung" },
+  { mark: "D", name: "Digital" },
+  { mark: "S", name: "Service" },
+];
+
 export default function HomePage() {
   return (
     <SiteLayout>
@@ -84,7 +92,7 @@ export default function HomePage() {
 
       <section className="border-y border-white/10 bg-slate-900/70">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950">
+          <div className="relative order-2 aspect-[16/11] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 lg:order-1">
             <Image
               src="/teammeeting-berlin.png"
               alt="DIPACT-Team bei einem freundlichen Meeting im Berliner Büro"
@@ -93,7 +101,7 @@ export default function HomePage() {
               className="object-cover object-center"
             />
           </div>
-          <div>
+          <div className="order-1 lg:order-2">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
               Wer wir sind
             </p>
@@ -121,6 +129,64 @@ export default function HomePage() {
                   Tagesarbeit stehen im Mittelpunkt.
                 </span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="partners-title"
+        className="border-b border-white/10 bg-slate-900/80"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
+              Zusammenarbeit
+            </p>
+            <h2
+              id="partners-title"
+              className="mt-3 text-3xl font-black text-white sm:text-4xl"
+            >
+              Unsere Partner
+            </h2>
+            <p className="mt-3 text-sm text-slate-400">
+              Vorläufige Platzhalter – Markenlogos werden nach Freigabe ergänzt.
+            </p>
+          </div>
+
+          <div className="partners-marquee" aria-label="Partnerkategorien">
+            <div className="partners-track">
+              {[false, true].map((isDuplicate) => (
+                <div
+                  key={isDuplicate ? "duplicate" : "original"}
+                  aria-hidden={isDuplicate}
+                  className="partners-group"
+                  role="list"
+                >
+                  {partnerCategories.map(({ mark, name }) => (
+                    <div
+                      key={name}
+                      role="listitem"
+                      className="flex h-24 w-52 flex-none items-center gap-4 rounded-2xl border border-white/10 bg-slate-950/70 px-5 transition duration-200 hover:-translate-y-0.5 hover:border-orange-400/40 hover:shadow-lg hover:shadow-orange-500/5 sm:w-56"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-orange-500/15 text-xl font-black text-orange-300"
+                      >
+                        {mark}
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block text-sm font-bold text-white">
+                          {name}
+                        </span>
+                        <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                          Platzhalter
+                        </span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
