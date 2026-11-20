@@ -63,32 +63,21 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 p-4 shadow-2xl shadow-orange-500/10">
-            <div className="aspect-[4/5] rounded-[1.5rem] bg-[radial-gradient(circle_at_top,_rgba(251,146,60,0.2),_transparent_40%),linear-gradient(135deg,_rgba(15,23,42,1),_rgba(30,41,59,0.9))] p-6">
-              <div className="flex h-full flex-col justify-between rounded-[1.2rem] border border-white/10 bg-slate-950/50 p-6">
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-400">
-                  <span>Briefing</span>
-                  <span>Team</span>
-                </div>
-                <div className="space-y-4">
-                  <div className="h-2 w-24 rounded-full bg-orange-500/80" />
-                  <div className="h-2 w-40 rounded-full bg-slate-700" />
-                  <div className="h-2 w-32 rounded-full bg-slate-700" />
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {new Array(6).fill(0).map((_, idx) => (
-                    <div
-                      key={idx}
-                      className="h-20 rounded-2xl border border-white/10 bg-gradient-to-br from-slate-800 to-slate-700"
-                    />
-                  ))}
-                </div>
-                <div className="flex items-center justify-between text-sm text-slate-300">
-                  <span>Außendienst</span>
-                  <span>Ergebnisse</span>
-                </div>
-              </div>
-            </div>
+          <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 shadow-2xl shadow-orange-500/10">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="DIPACT Teamvideo"
+              className="h-full w-full object-cover"
+            >
+              <source
+                src="https://res.cloudinary.com/dh3eueciv/video/upload/v1795169873/0dfcc52f2247ba632d1e1be7ed380763_0_1794997957_yojd3v.mp4"
+                type="video/mp4"
+              />
+            </video>
           </div>
         </div>
       </section>

@@ -50,6 +50,9 @@ DATABASE_URL="postgresql://USER:PASSWORD@HOST:5432/postgres?sslmode=require"
 DASHBOARD_EMAIL="manager@example.com"
 DASHBOARD_PASSWORD="use-a-unique-strong-password"
 DASHBOARD_SESSION_SECRET="generate-a-random-secret-at-least-32-characters-long"
+RESEND_API_KEY="re_..."
+RESEND_FROM_EMAIL="DIPACT <notifications@your-verified-domain.de>"
+NOTIFICATION_EMAIL_TO="info@lavut-engel.com"
 ```
 
 Einen Sitzungsschlüssel können Sie mit `openssl rand -base64 32` erzeugen. Verwenden Sie für den Dashboard-Zugang ein einzigartiges, starkes Passwort, schützen Sie den Login zusätzlich mit Rate Limiting und hinterlegen Sie keine Zugangsdaten in Quellcode, Dokumentation oder Git.
@@ -77,3 +80,41 @@ npm run lint
 npm run build
 npx prisma validate
 ```
+
+## E-Mail-Benachrichtigungen in Vercel einrichten
+
+Alle drei Formulare senden nach erfolgreicher Speicherung eine Benachrichtigung
+über Resend an die in `NOTIFICATION_EMAIL_TO` konfigurierten Adressen. Mehrere
+Empfänger werden durch Kommas getrennt. Schlägt der E-Mail-Versand fehl, bleibt
+die Anfrage in der Datenbank gespeichert und die absendende Person erhält einen
+deutlichen Hinweis.
+
+1. Erstellen Sie ein Konto bei [Resend](https://resend.com/) und fügen Sie unter
+   [Domains](https://resend.com/domains) eine Absenderdomain hinzu. Veröffentlichen
+   Sie die von Resend angegebenen DNS-Einträge und warten Sie, bis die Domain
+   verifiziert ist.
+2. Erstellen Sie in Resend einen API-Schlüssel mit Berechtigung zum Versenden
+   von E-Mails.
+3. Öffnen Sie in Vercel das Projekt unter **Settings → Environment Variables**
+   und fügen Sie diese Variablen für **Production** hinzu. Aktivieren Sie
+   **Preview** oder **Development** nur, wenn E-Mails auch aus diesen
+   Umgebungen versendet werden sollen:
+
+   | Variable | Wert |
+   | --- | --- |
+   | `RESEND_API_KEY` | Der geheime API-Schlüssel aus Resend (`re_...`) |
+   | `RESEND_FROM_EMAIL` | Verifizierter Absender, z. B. `DIPACT <notifications@ihre-domain.de>` |
+   | `NOTIFICATION_EMAIL_TO` | Eine oder mehrere kommagetrennte Adressen, z. B. `info@lavut-engel.com, second@example.com` |
+
+4. Speichern Sie die Variablen und erstellen Sie ein neues Deployment, damit
+   Vercel sie übernimmt. Senden Sie anschließend je eine Testanfrage über das
+   Bewerbungs-, Unternehmens- und Kontaktformular und prüfen Sie den Posteingang
+   sowie den Spam-Ordner.
+
+Setzen Sie `RESEND_API_KEY` niemals in `NEXT_PUBLIC_*`-Variablen oder in
+Quellcode. Tragen Sie Werte in Vercel ohne Anführungszeichen ein. Da
+Formularangaben an Resend übermittelt werden, prüfen Sie vor dem
+Produktiveinsatz die Datenschutzhinweise und die erforderliche
+Auftragsverarbeitungsvereinbarung mit Resend. Laut Resend steuert die gewählte
+Versandregion nicht den Speicherort der Kontodaten: Kontoangaben, E-Mail-
+Metadaten, Protokolle und API-Datensätze werden in den USA gespeichert.

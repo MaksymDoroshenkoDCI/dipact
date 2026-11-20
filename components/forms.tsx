@@ -22,16 +22,20 @@ import {
 function FormStatus({
   message,
   success,
+  warning,
 }: {
   message?: string;
   success?: boolean;
+  warning?: boolean;
 }) {
   if (!message) return null;
 
   return (
     <div
       className={`rounded-xl border px-4 py-3 text-sm ${
-        success
+        warning
+          ? "border-amber-500/30 bg-amber-100 text-black"
+          : success
           ? "border-emerald-500/30 bg-emerald-100 text-black"
           : "border-red-500/30 bg-red-500/10 text-red-200"
       }`}
@@ -58,6 +62,7 @@ export function CandidateApplicationForm() {
   const [status, setStatus] = useState<{
     success: boolean;
     message: string;
+    warning?: boolean;
   } | null>(null);
 
   const onSubmit = async (values: CandidateApplicationInput) => {
@@ -176,7 +181,11 @@ export function CandidateApplicationForm() {
         )}
       </div>
 
-      <FormStatus message={status?.message} success={status?.success} />
+      <FormStatus
+        message={status?.message}
+        success={status?.success}
+        warning={status?.warning}
+      />
 
       <button
         type="submit"
@@ -205,6 +214,7 @@ export function CompanyRequestForm() {
   const [status, setStatus] = useState<{
     success: boolean;
     message: string;
+    warning?: boolean;
   } | null>(null);
 
   const onSubmit = async (values: CompanyRequestInput) => {
@@ -321,7 +331,11 @@ export function CompanyRequestForm() {
         )}
       </div>
 
-      <FormStatus message={status?.message} success={status?.success} />
+      <FormStatus
+        message={status?.message}
+        success={status?.success}
+        warning={status?.warning}
+      />
 
       <button
         type="submit"
@@ -352,6 +366,7 @@ export function ContactMessageForm() {
   const [status, setStatus] = useState<{
     success: boolean;
     message: string;
+    warning?: boolean;
   } | null>(null);
 
   const onSubmit = async (values: ContactMessageInput) => {
@@ -459,7 +474,11 @@ export function ContactMessageForm() {
         <p className="text-sm text-red-300">{errors.privacyAccepted.message}</p>
       )}
 
-      <FormStatus message={status?.message} success={status?.success} />
+      <FormStatus
+        message={status?.message}
+        success={status?.success}
+        warning={status?.warning}
+      />
 
       <button
         type="submit"

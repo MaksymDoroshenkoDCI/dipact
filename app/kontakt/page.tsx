@@ -52,6 +52,23 @@ export default function ContactPage() {
 
           <ContactMessageForm />
         </div>
+
+        <div className="mt-10">
+          <h2 className="text-2xl font-bold text-white">Unser Standort</h2>
+          <p className="mt-2 text-slate-300">
+            Innsbrucker Straße 25, 10825 Berlin
+          </p>
+          <div className="relative mt-5 aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 sm:aspect-[16/9]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.4644971729526!2d13.340149712799924!3d52.480100139065186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a85068c9216eb5%3A0xd8c2a5eb2f44ccc3!2sInnsbrucker%20Str.%2025%2C%2010825%20Berlin-Bezirk%20Tempelhof-Sch%C3%B6neberg!5e1!3m2!1suk!2sde!4v1795170251898!5m2!1suk!2sde"
+              title="Karte: Innsbrucker Straße 25, 10825 Berlin"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full border-0"
+            />
+          </div>
+        </div>
       </section>
     </SiteLayout>
   );
