@@ -1,0 +1,13 @@
+{
+  "name": "DIPACT Laufliste",
+  "short_name": "DIPACT",
+  "start_url": "/laufliste",
+  "scope": "/laufliste",
+  "display": "standalone",
+  "background_color": "#0B1014",
+  "theme_color": "#0B1014",
+  "icons": [
+    { "src": "https://www.dipact.de/favicon_dipact/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "https://www.dipact.de/favicon_dipact/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
