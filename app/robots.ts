@@ -5,7 +5,14 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/dashboard", "/dashboard/"],
+      disallow: [
+        "/dashboard",
+        "/dashboard/",
+        "/Laufliste",
+        "/Laufliste/",
+        "/laufliste",
+        "/laufliste/",
+      ],
     },
     sitemap: "https://dipact.de/sitemap.xml",
     host: "https://dipact.de",
